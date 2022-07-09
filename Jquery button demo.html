@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            
+            $('#hide').click(function (){
+                
+                    if(confirm)
+                    {
+                        $(this).attr('disabled',true)
+                        $('#box').hide(2000)
+                        $("#show").attr('disabled',false)
+                        $('#toggle').text("show")
+            
+                    }
+
+            });    
+            $('#show').click(function (){
+                
+                    if(confirm)
+                    {  
+                        $(this).attr('disabled',true)
+                        $('#box').show(2000)
+                        $("#hide").attr('disabled',false)
+                        $('#toggle').text("Hide")
+                    }
+            
+                });
+            $('#toggle').click(function (){
+                $('#box').toggle(2000);
+                ($('#toggle').text()=="Hide")
+                    ?($('#toggle').text('Show'),$('#hide').attr('disabled',true),$('#show').attr('disabled',false))
+                    :($('#toggle').text('Hide'),$('#hide').attr('disabled',false),$('#show').attr('disabled',true));
+            });
+            $('#plus').click(function (){
+                let size=parseInt($('#box').css('height'))
+                if(size<=600){
+                    size+=20;
+                    $("#box").css('height',size)
+                    $("#box").css('width',size)
+                }
+                else{
+                    alert('Max size is 600px')
+                }
+            });
+            $('#minus').click(function (){
+                let size=parseInt($('#box').css('height'))
+                if(size>=40){
+                    size-=20;
+                    $("#box").css('height',size)
+                    $("#box").css('width',size)
+                }
+                else{
+                    alert('Min size is 40px')
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="box" style="height: 400px;width:400px;background-color:chocolate;"></div><hr>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button><hr>
+    <button id="toggle" >Hide</button><hr>
+    <button id="plus" style="font-size: larger;">+</button>
+    <button id="minus" style="font-size: larger;">-</button>
+
+    
+</body>
+</html>
